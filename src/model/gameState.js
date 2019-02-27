@@ -5,12 +5,13 @@ import DiscardPile from './stateComponents/discardPile';
 class GameState {
     constructor(playerNames) {
         this.deck = new Deck();
-        this.deck.shuffleCards();
+        this.deck.shuffleDeck();
         
-        this.players = [];
+        var players = [];
         playerNames.forEach(function(name) {
-            this.players.push(new Player(name));
+            players.push(new Player(name));
         });
+        this.players = players;
 
         this.discardPile = new DiscardPile();
 

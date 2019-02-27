@@ -36,9 +36,9 @@ class Deck extends CardCollection{
      * @param {cards to be added to the deck} cards 
      */
     addCards(cards) {
-        cards.forEach(function(card) {
-            this.addCard(card);
-        });
+        for (let i = 0; i < cards.length; i++) {
+            super.addCard(cards[i]);
+        }
     }
 }
 

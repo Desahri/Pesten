@@ -1,5 +1,5 @@
 class Card {
-    constructor(nr) {
+    constructor(number) {
         var suite, value;
 
         //0 to 12 for clubs, 13 to 25 for hearts, etc
@@ -23,13 +23,13 @@ class Card {
         //else if 10 then jack, if 11 then queen, if 12 then king
         switch(number % 13) {
             case 10:
-                value = "JACK";
+                value = "J";
                 break;
             case 11:
-                value = "QUEEN";
+                value = "Q";
                 break;
             case 12:
-                value = "KING";
+                value = "K";
                 break;
             default:
                 value = "" + ((number % 13) + 1);

@@ -1,0 +1,15 @@
+.card {
+    background-color: #fff;
+    border: 2px solid #000;
+    font-size: 60px;
+    display: inline-block;
+    width: 130px;
+}
+
+.red {
+    color: #f00;
+}
+
+.black {
+    color: #000;
+}

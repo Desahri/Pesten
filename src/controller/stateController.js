@@ -24,15 +24,19 @@ class StateController {
      * execute a turn
      */
     nextTurn() {
-        let currentPlayer = this.gameState.players[this.gameState.turn-1]
+        if (this.winner() != null) {
+            return;
+        }
+        let currentPlayer = this.getCurrentPlayer();
         let currentCard = this.getLastDiscarded();
 
-        let cardToPlay = selectCardToPlay(currentCard, currentPlayer);
+        let cardToPlay = this.selectCardToPlay(currentCard, currentPlayer);
         if (cardToPlay == null) {
             this.getDeckCard(currentPlayer);
         } else {
             this.playCard(currentPlayer, cardToPlay);
         }
+        this.gameState.turn++;
     }
 
     /**
@@ -80,8 +84,8 @@ class StateController {
     getDeckCard(player) {
         let deck = this.gameState.deck;
         if(deck.cards.length == 0) {
-            deck.addCards(discardPile.getBottomCards());
-            deck.shuffleCards();
+            deck.addCards(this.gameState.discardPile.getBottomCards());
+            deck.shuffleDeck();
         }
         player.giveCard(deck.getTopCard());
     }
@@ -91,6 +95,10 @@ class StateController {
         return this.gameState.players;
     }
 
+    getCurrentPlayer() {
+        return this.gameState.players[(this.gameState.turn - 1) % 4]
+    }
+
     /**
      * returns the top card of the discard pile
      * @returns the card inserted last in the discard pile
@@ -98,4 +106,20 @@ class StateController {
     getLastDiscarded() {
         return this.gameState.discardPile.seeTopCard();
     }
+
+    getCurrentTurn() {
+        return this.gameState.turn;
+    }
+
+    winner() {
+        var winner = null;
+        this.getPlayers().forEach(function(p) {
+            if(p.cards.length == 0) {
+                winner = p.playerName;
+            }
+        });
+        return winner;
+    }
 }
+
+export default StateController;
