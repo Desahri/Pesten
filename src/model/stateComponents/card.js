@@ -22,6 +22,9 @@ class Card {
         //13 * i + number is in [0, 9] is value +1
         //else if 10 then jack, if 11 then queen, if 12 then king
         switch(number % 13) {
+            case 0:
+                value = "A";
+                break
             case 10:
                 value = "J";
                 break;
