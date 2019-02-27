@@ -54,6 +54,7 @@ The design for the middle was hard to come up with. One thing that surely needed
 Since it was not required to make it interactive, the user cannot choose which card will be played. Still, to give the user some sort of control over the UI and easily inspect the UI, a single button is added to make the game flow turn by turn.
 
 ## Non-required additions
+- When the deck is empty and someone needs to get a card, the discard pile (excpet for the top card) will be inserted into the deck and the deck will be shuffled
 - The cards of the players are sorted
 - The game is (minimally) interactive
 - A custom strategy can be set to a player
