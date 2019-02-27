@@ -3,6 +3,11 @@ import Player from './stateComponents/player';
 import DiscardPile from './stateComponents/discardPile';
 
 class GameState {
+    /**
+     * 
+     * @param {names of the 4 players} playerNames
+     * @pre playerNames.length == 4 
+     */
     constructor(playerNames) {
         this.deck = new Deck();
         this.deck.shuffleDeck();

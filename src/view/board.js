@@ -17,8 +17,12 @@ class Board extends React.Component {
         }
     }
 
+    /**
+     * Makes the current player play a card (if possible)
+     * does nothing if the game is already finished
+     */
     doTurn() {
-        if(this.controller.winner() != null) {
+        if (this.controller.winner() != null) {
             return;
         }
         let state = this.controller.gamestate;
@@ -32,17 +36,23 @@ class Board extends React.Component {
         var winner = this.controller.winner();
         return (
             <div className="w3-display-container w3-light-green" style={{height: "100vh"}}>
+                {/* The left player */}
                 <div className="w3-display-left " style={{width: "33%"}}>
                     <HandDiv 
-                        player={this.controller.getPlayers()[1]}/>
+                        player={this.controller.getPlayers()[1]}
+                        turn={this.controller.getPlayers()[1] == this.controller.getCurrentPlayer() && winner == null}/>
                 </div>
 
+                {/* The middle players and info */}
                 <div className="w3-display-middle w3-display-container" style={{width: "33%", height: "100vh"}}>
+                    {/* The top player */}
                     <div className="w3-display-topmiddle" style={{width: "100%"}}>
                         <HandDiv 
-                            player={this.controller.getPlayers()[2]}/>
+                            player={this.controller.getPlayers()[2]}
+                            turn={this.controller.getPlayers()[2] == this.controller.getCurrentPlayer() && winner == null}/>
                     </div>
 
+                    {/* The discard pile and deck info */}
                     <div className="w3-display-middle">
                         <span>{"Deck size: " + this.controller.gameState.deck.cards.length}</span>
                         <br></br>
@@ -51,9 +61,11 @@ class Board extends React.Component {
                         <span>{"Discard pile size: " + this.controller.gameState.discardPile.cards.length}</span>
                     </div>
 
+                    {/* The bottom player and button */}
                     <div className="w3-display-bottommiddle" style={{width: "100%"}}>
                     <HandDiv 
-                        player={this.controller.getPlayers()[0]}/>
+                        player={this.controller.getPlayers()[0]}
+                        turn={this.controller.getPlayers()[0] == this.controller.getCurrentPlayer() && winner == null}/>
                         <button 
                             disabled={winner != null} 
                             onClick={() => this.doTurn()}
@@ -61,9 +73,11 @@ class Board extends React.Component {
                     </div>
                 </div>
 
+                {/* The right player */}
                 <div className="w3-display-right" style={{width: "33%"}}>
                     <HandDiv 
-                        player={this.controller.getPlayers()[3]}/>
+                        player={this.controller.getPlayers()[3]}
+                        turn={this.controller.getPlayers()[3] == this.controller.getCurrentPlayer() && winner == null}/>
                 </div>
             </div>
         )

@@ -4,6 +4,10 @@ import CardDiv from './cardDiv';
 
 import './handDiv.css';
 
+/*
+ * representation of a player, mainly the cards he/she is holding
+ * also shows the name
+ */
 function HandDiv(props) {
     var cardDivs = props.player.cards.map((card, i) => {
         return(
@@ -22,7 +26,7 @@ function HandDiv(props) {
         statusClass = "cards";
     }
     return(
-        <div className={statusClass}>
+        <div className={statusClass + (props.turn ? " turn" : "")}>
             {cardDivs}
             <h1>{props.player.playerName + " " + status}</h1>
         </div>

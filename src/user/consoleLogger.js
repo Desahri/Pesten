@@ -1,6 +1,8 @@
 import StateController from '../controller/stateController';
 import GameState from '../model/gameState';
 
+//Used before a view was present
+
 function playGame() {
     var controller = new StateController(new GameState(["Didier","Laurent","Joelle","Frans"]));
 

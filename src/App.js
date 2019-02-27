@@ -7,13 +7,14 @@ import GameState from './model/gameState';
 
 class App extends Component {
 
-  render() {
-    return (
-      <div>
-        <Board controller={new StateController(new GameState(["Didier","Laurent","Joelle","Frans"]))}/>
-      </div>
-    );
-  }
+    render() {
+        var names = ["Jan","Wilbert","Robin","Stijn"]; //change when using different names
+        return (
+            <div>
+                <Board controller={new StateController(new GameState(names))}/>
+            </div>
+        );
+    }
 }
 
 export default App;

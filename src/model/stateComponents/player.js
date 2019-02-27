@@ -1,5 +1,7 @@
 import CardCollection from "./cardCollection";
 
+import cardComparator from "./cardComparator";
+
 class Player extends CardCollection {
     /**
      * 
@@ -27,7 +29,7 @@ class Player extends CardCollection {
      */
     giveCard(card) {
         this.addCard(card);
-        this.cards.sort();
+        this.cards.sort(cardComparator);
     }
 }
 

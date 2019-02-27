@@ -9,3 +9,7 @@
 .winner {
     background-color: #0f0;
 }
+
+.turn {
+    border: 4px solid #00f;
+}

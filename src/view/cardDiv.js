@@ -1,6 +1,9 @@
 import React from 'react';
 import './cardDiv.css';
 
+/*
+ * representation of a card given the card as prop
+ */
 function CardDiv(props) {
     var suite = "";
     var col = "";
