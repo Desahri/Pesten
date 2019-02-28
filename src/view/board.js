@@ -45,8 +45,9 @@ class Board extends React.Component {
 
                 {/* The middle players and info */}
                 <div className="w3-display-middle w3-display-container" style={{width: "33%", height: "100vh"}}>
-                    {/* The top player */}
+                    {/* The top player and turn counter*/}
                     <div className="w3-display-topmiddle" style={{width: "100%"}}>
+                        <span>{"Turn: " + this.controller.getCurrentTurn()}</span>
                         <HandDiv 
                             player={this.controller.getPlayers()[2]}
                             turn={this.controller.getPlayers()[2] == this.controller.getCurrentPlayer() && winner == null}/>

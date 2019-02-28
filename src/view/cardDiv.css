@@ -1,9 +1,9 @@
 .card {
     background-color: #fff;
     border: 2px solid #000;
-    font-size: 60px;
+    font-size: 40px;
     display: inline-block;
-    width: 130px;
+    width: 110px;
 }
 
 .red {
